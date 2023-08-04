@@ -1,0 +1,80 @@
+// Google fonts
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@500&family=Open+Sans:ital,wght@0,300;0,400;1,700&display=swap');
+
+/*Varıables - Değişkenler = Yazılarımız için değişkenlere atadık tekrar tekrar değişkeni çağırabileceğiz. */
+$primary-font: 'Changa', sans-serif;
+$secondary-font: 'Open Sans', sans-serif;
+
+// Color Değişkenleri
+$primary-color: #E51515;
+$secondary-color: #14151A;
+$date-color: #ffb320;
+$comment-color: #08abbd;
+$gray-color: #9f9f9f;
+$light-color: #fefefe;
+
+/* UTILITIES = Tek bir işlevi olan classlar */
+
+// Bu şekilde tekrar etmektense aşağıda kolay bir şekilde tanımlayabiliriz
+// .bg-dark{
+//     background-color: $secondary-color;
+// }
+
+// .bg-light{
+//     background-color: $light-color;
+// }
+
+.bg {
+    &-dark{
+        background-color: $secondary-color;
+    }
+    &-light{
+        background-color: $light-color;
+    }
+}
+
+.ml{
+    &-2 { //ml-2 classı
+        margin-left: 2rem;
+    }
+}
+
+.text-light{
+    color: $light-color;
+}
+
+.text-primary{
+    color: $primary-color;
+    text-align: center;
+}
+
+.text-center{
+    text-align: center;
+}
+/*MIXINS*/
+
+@mixin flex-display($display,$align-items,$justfiy-content){
+    display: $display;
+    align-items:$align-items;
+    justify-content: $justfiy-content;
+}
+
+// RESPONSİVE
+
+@mixin media($screensize) {
+    @if ($screensize == xlarge) {
+        @media (max-width: 1280px) { @content };
+      }
+
+    @if ($screensize == large) {
+      @media (max-width: 992px) { @content };
+    }
+  
+    @if ($screensize == medium) {
+      @media (max-width: 768px) { @content };
+    }
+  
+    @if ($screensize == small) {
+      @media (max-width: 576px) { @content };
+    }
+  }
